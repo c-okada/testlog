@@ -1,9 +1,9 @@
 <?php
 ini_set('display_errors',1);//本番移行時削除
-define('DSN','mysql:host=localhost;charset=utf8;dbname=bbs');
-define('DB_USERNAME','bbs_user');
-define('DB_PASSWORD','41fi0CjEw0ZgZrZE');
-define('SITE_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/bbs/public_html');
+define('DSN','mysql:host=localhost;charset=utf8;dbname=testlog');
+define('DB_USERNAME','testlog_user');
+define('DB_PASSWORD','eIHDowWdlVnNycof');
+define('SITE_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/testlog/public_html');
 require_once(__DIR__ .'/../lib/Controller/functions.php');
 require_once(__DIR__ . '/autoload.php');
 session_start();

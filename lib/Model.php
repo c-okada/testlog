@@ -1,5 +1,5 @@
 <?php
-namespace Bbs;
+namespace Testlog;
 class Model {
   protected $db;
   public function __construct(){

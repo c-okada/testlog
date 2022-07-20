@@ -1,36 +1,19 @@
-<?php
-require_once(__DIR__ .'/header.php');
-?>
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>タイマー？</title>
 
-  <div class="l-title">
-    <h2 class="c-title">検針記録</h2>
-  </div>
+<body>
+<h1>TImer</h1>
+<h2>Timer1</h2>
+<p><input type="button" value="Start">:<label></label>
+<p><input type="button" value="End">:<label></label>
+<p><input type="button" value="Calc">:<label></label>
+<h2>Timer2</h2>
+<p><input type="button" value="Start">:<label></label>
+<p><input type="button" value="End">:<label></label>
+<p><input type="button" value="Calc">:<label></label>
 
-  <form action="check.php" method="post" id="log" class="form">
-    <div div class="l-log">
-      <p><input type="button" value="開始" class="btn c-btn btn__start">:<label></label></p>
-      <!-- <input type="hidden" name="$"> -->
-
-      <p><input type="button" value="終了" class="btn c-btn c-btn__fin">:<label></label></p>
-      <!-- <input type="hidden" name="$"> -->
-
-    </div>
-
-    <div class="l-count">
-      <input type="text" class="c-count"><span class="c-value">/件</span>
-    </div>
-
-    <div class="l-remarks">
-      <p class="c-item">備忘録：</p>
-      <p class="c-remark"></p>
-    </div>
-
-    <div class="l-score">
-    <p><input type="submit" value="記録" class="btn c-btn c-btn__score"></p>
-    <input type="hidden" name="<?php echo $mcalc; ?>">
-    </div>
-  </form>
-  <script>
+<script>
 //まずその機能で使われるであろう変数を全部含んだ入れ物を作る
 function Timer (startbtn, startview, endbtn, endview, calcbtn, calcview) {
 　this.startbtn = startbtn;
@@ -68,18 +51,24 @@ function clickHandleEvent (event) {
 　case this.startbtn == e ://スタート
 　　this.mstart = new Date;
 　　this.startview.textContent = disptime (this.mstart);
+    $mstart = disptime (this.mstart);
+    // console.log($mstart);
 　　break;
 　　
 　case this.endbtn == e ://終わり
 　　this.mend = new Date;
 　　this.endview.textContent = disptime (this.mend);
+    $mend = disptime (this.mend);
 　　break;
 　
 　case this.calcbtn == e ://経過
 　　var d = new Date;
 　　tz = d.getTimezoneOffset () * 60 * 1000;
 　　this.mcalc = new Date (this.mend - this.mstart + tz);
+// console.log(this.mcalc);
+    //textContentでlabelに追記している。calcviewは自作
 　　this.calcview.textContent = disptime (this.mcalc);
+    $mcalc = disptime (this.mcalc);
 　　break;
 　}
 }
@@ -105,6 +94,3 @@ var timer2 = new Timer (btn[3],lbl[3],btn[4],lbl[4],btn[5],lbl[5]);
 document.addEventListener ('click', timer2, false);
 
 </script>
-  <?php
-  require_once(__DIR__ .'/footer.php');
-  ?>
