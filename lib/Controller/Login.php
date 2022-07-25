@@ -48,7 +48,7 @@ class Login extends \Bbs\Controller {
       // ユーザー情報をセッションに格納
       $_SESSION['me'] = $user;
       // スレッド一覧ページへリダイレクト
-      header('Location: '. SITE_URL . '/thread_all.php');
+      header('Location: '. SITE_URL . '/');
       exit();
     }
   }

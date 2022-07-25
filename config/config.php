@@ -1,7 +1,7 @@
 <?php
 ini_set('display_errors',1);//本番移行時削除
 define('DSN','mysql:host=localhost;charset=utf8;dbname=testlog');
-define('DB_USERNAME','testlog_user');
+define('DB_USERNAME','testlog');
 define('DB_PASSWORD','eIHDowWdlVnNycof');
 define('SITE_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/testlog/public_html');
 require_once(__DIR__ .'/../lib/Controller/functions.php');
@@ -15,8 +15,8 @@ if(strpos($file_name,'login.php') !== false || strpos($file_name,'signup.php') !
   //URL内のファイル名がlogin.php,signup.php,index.php(public_html)のとき
 }else{
   //それ以外の時
-  if(!isset($_SESSION['me'])){
-    header('Location: ' . SITE_URL . '/login.php');
-    exit();
-  }
+  // if(!isset($_SESSION['me'])){
+  //   header('Location: ' . SITE_URL . '/login.php');
+  //   exit();
+  // }
 }

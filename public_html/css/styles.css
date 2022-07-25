@@ -120,6 +120,7 @@ img {
   max-width: 100%;
   display: block;
   width: 100%;
+  height: 100%;
 }
 
 /* Natural flow and rhythm in articles by default */
@@ -186,67 +187,30 @@ select::-ms-expand {
   margin: 0 auto;
 }
 
-.l-nav{
-  display: flex;
+.l-header{
+  /* display: flex;
   padding: 5px 5px;
   justify-content: center;
-  font-size: 14px;
-}
-
-.l-title{
-  text-align: center;
-  margin-top: 10px;
-}
-
-.c-title{
-  display: inline-block;
-  font-size: 20px;
+  font-size: 14px; */
 }
 
 
-.l-log{
+.l-header__nav{
+
+}
+.l-header__nav--active{
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
-  padding: 0 20%;
 }
+.l-header__left{
 
-.l-count{
+}
+.l-header__right{
   display: flex;
-  justify-content: center;
-  margin-top: 10px;
 }
+.l-header__right--name{
 
-.l-remarks{
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
 }
+.l-header__right--logout{
 
-.c-btn{
-  font-size: 18px;
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 15px;
-}
-.c-btn__start{
-  background-color: #E20000;
-}
-.c-btn__fin{
-  background-color: #305CFA;
-}
-
-.l-score{
-  text-align: center;
-  margin-top: 10px;
-}
-.c-btn__score{
-  background-color: #D255E7;
-}
-
-/* 一覧 */
-.l-total{
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
 }
