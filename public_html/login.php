@@ -3,20 +3,23 @@ require_once(__DIR__ .'/header.php');
 $app = new Bbs\Controller\Login();
 $app->run();
 ?>
-<div class="container">
-  <form action="" method="post" id="login" class="form">
-    <div class="form-group">
+
+<div class="p-login l-inner">
+  <form action="" method="post" id="login" class="p-login__forms">
+    <div class="p-login__form">
       <label>メールアドレス</label>
-      <input type="text" name="email" value="<?= isset($app->getValues()->email) ? h($app->getValues()->email) : ''; ?>" class="form-control">
+      <input type="text" name="email" value="<?= isset($app->getValues()->email) ? h($app->getValues()->email) : ''; ?>" id="p-login__form-control">
     </div>
-    <div class="form-group">
+    <div class="p-login__form">
       <label>パスワード</label>
-      <input type="password" name="password" class="form-control">
+      <input type="password" name="password" id="p-login__form-control">
     </div>
     <p class="err"><?= h($app->getErrors('login')); ?></p>
-    <button class="btn btn-primary" onclick="document.getElementById('login').submit();">ログイン</button>
+    <div class="p-login__btn">
+      <button class="c-btn" onclick="document.getElementById('login').submit();">ログイン</button>
+    </div>
     <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
   </form>
-  <p class="fs12"><a href="signup.php">ユーザー登録</a></p>
 </div><!--container -->
+
 <?php require_once(__DIR__ .'/footer.php'); ?>

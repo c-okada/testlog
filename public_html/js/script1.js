@@ -25,31 +25,16 @@ function Timer (startbtn, startview, endbtn, endview, calcbtn, calcview) {
   //ゼロパディグしない
   function zp(n) {
   　return ('00' + n).slice (-2);
-  }
-  //フォーマットする関数を作成
-  // function format (time){
-  //   var YYYY = time.getFullYear();
-  //   var MM = time.getMonth()+1;
-  //   var DD = time.getDate();
-  //   var hh = time.getHours();
-  //   var mm = time.getMinutes();
-  //   var ss = time.getSeconds();
-
-  //   time = YYYY+"-"+MM+"-"+DD+" "+hh+":"+mm+":"+ss;
-  // }
-  const formatDate = (current_datetime)=>{
-    let formatted_date = current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate() + " " + current_datetime.getHours() + ":" + current_datetime.getMinutes() + ":" + current_datetime.getSeconds();
-    return formatted_date;
-}
-  
+  }  
 
   //ボタンが押されたときの処理を作る
   function clickHandleEvent (event) {
   　var e = event.target;
   　var sa, d, tz;
-    //hiddenにデータを格納するためにインプットを作成
-    const input = document.createElement('input');
-    var html = document.getElementById("log");
+  
+  //hiddenにデータを格納するためにインプットを作成
+  const input = document.createElement('input');
+  var html = document.getElementById("log");
   
   　switch (true) {
   　case "開始" == e.value ://スタート
@@ -57,7 +42,7 @@ function Timer (startbtn, startview, endbtn, endview, calcbtn, calcview) {
       $mstart = disptime (this.mstart);
       e.value = $mstart
       //時間型をDBの型に変更(フォーマット)
-      $start = formatDate(this.mstart);
+      $start = this.mstart.getTime();
 
       input.setAttribute('type', 'hidden');
       input.setAttribute('name', 'start');
@@ -75,7 +60,7 @@ function Timer (startbtn, startview, endbtn, endview, calcbtn, calcview) {
       $mend = disptime (this.mend);
       e.value = $mend
       //時間型をDBの型に変更(フォーマット)
-      $end = formatDate(this.mend);
+      $end = this.mend.getTime();
 
       input.setAttribute('type', 'hidden');
       input.setAttribute('name', 'finish');
@@ -88,11 +73,8 @@ function Timer (startbtn, startview, endbtn, endview, calcbtn, calcview) {
   　　tz = d.getTimezoneOffset () * 60 * 1000;
   　　this.mcalc = new Date (this.mend - this.mstart + tz);
       $mcalc = disptime (this.mcalc);
-
-      console.log($mcalc);
-      
       //時間型をDBの型に変更(フォーマット)
-      $calc = formatDate(this.mcalc);
+      $calc = this.mcalc.getTime();
       
       input.setAttribute('type', 'hidden');
       input.setAttribute('name', 'time');

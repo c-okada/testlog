@@ -1,6 +1,11 @@
 @charset "UTF-8";
 body {
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: 'Kaisei Opti', serif;
+  background-color: #FBC02D;
+}
+
+input:-webkit-autofill {
+  transition: background-color 5000s ease-in-out 0s !important;
 }
 
 .u-desktop {
@@ -179,75 +184,6 @@ select::-ms-expand {
   display: none;
 }
 
-/**/
-
-.l-inner{
-  max-width: 750px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.l-nav{
-  display: flex;
-  padding: 5px 5px;
-  justify-content: center;
-  font-size: 14px;
-}
-
-.l-title{
-  text-align: center;
-  margin-top: 10px;
-}
-
-.c-title{
-  display: inline-block;
-  font-size: 20px;
-}
-
-
-.l-log{
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-  padding: 0 20%;
-}
-
-.l-count{
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.l-remarks{
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.c-btn{
-  font-size: 18px;
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 15px;
-}
-.c-btn__start{
-  background-color: #E20000;
-}
-.c-btn__fin{
-  background-color: #305CFA;
-}
-
-.l-score{
-  text-align: center;
-  margin-top: 10px;
-}
-.c-btn__score{
-  background-color: #D255E7;
-}
-
-/* 一覧 */
-.l-total{
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
+input:-internal-autofill-selected{
+  background-color: initial;
 }

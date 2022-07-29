@@ -1,0 +1,39 @@
+
+.p-login{
+  background-color: #F9FBE7; 
+  border-radius: 1.5rem;
+  box-shadow: 3px 4px 27px 9px rgba(0,0,0,0.17);
+  height: 100%;
+  width: 60%;
+  margin-top: 3rem;
+  @media screen and (min-width: 768px) {
+    width: 40%;
+    margin-top: 3.5rem;
+  }
+}
+
+.p-login__forms{
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @media screen and (min-width: 768px) {
+    padding: 3rem;
+  }
+}
+
+.p-login__forms > div,.p-login__forms > button,.p-login__forms > p{
+  margin-top: 1rem;
+}
+#p-login__form-control{
+  margin-top: 0.5rem;
+  border-bottom: 1px solid #FBC02D;
+}
+.p-login__form{
+  display: flex;
+  flex-direction: column;
+}
+.p-login__btn{
+  text-align: center;
+}
