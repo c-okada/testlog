@@ -14,4 +14,96 @@
   color: #fff;
   text-align: center;
   border-radius: 1rem;
+  font-size: 1.2rem;
+  @media screen and(min-width:768px){
+    font-size: 1.5rem;
+  }
+}
+
+.l-title{
+  text-align: center;
+  margin-top: 5vh;
+  @media screen and(min-width:450px){
+    margin-top: 10vh;
+  }
+  @media screen and(min-width:768px){
+    margin-top: 3rem;
+  }
+}
+
+.c-title{
+  font-weight: bold;
+  font-size: 2rem;
+  @media screen and (min-width: 768px) {
+    font-size: 3rem;
+  }
+}
+
+.l-main{
+  text-align: center;
+  background-color: #F9FBE7;
+  border-radius: 1rem;
+  margin-top: 2.5rem;
+  width: 85%;
+  padding: 3rem 1rem;
+  @media screen and(min-width:768px){
+    margin-top: 4rem;
+    width: 60%;
+  }
+}
+
+.c-time{
+  color: #fff;
+  background-color: #FBC02D;
+  border-radius: 1rem;
+  padding: 1rem;
+  font-size: 1.2rem;
+  @media screen and(min-width:768px){
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+  }
+}
+.c-time+.c-time{
+  margin-top: 2rem;
+  @media screen and(min-width:450px){
+    margin-top: initial;
+  }
+}
+.c-time:first-child{
+  @media screen and(min-width:450px){
+    margin-right: 2rem;
+  }
+}
+
+.is-active{
+  color: #FBC02D;
+  background-color: transparent;
+}
+
+.c-active{
+  margin-top: 1rem;
+  display: block;
+  padding: 0 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.c-action{
+  resize: none;
+  height:10vh;
+  background-color: #FBC02D;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  width:100%;
+  margin-top: 1rem;
+  @media screen and(min-width:450px){
+    width:65%;
+  }
+  @media screen and(min-width:768px){
+    margin-top: 1.5rem;
+  }
+}
+
+.c-user__delete{
+  margin-top: 1.5rem;
 }

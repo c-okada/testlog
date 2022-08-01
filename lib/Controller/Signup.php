@@ -46,7 +46,7 @@ class Signup extends \Bbs\Controller {
       ]);
       session_regenerate_id(true);
       $_SESSION['me'] = $user;
-      header('Location: '. SITE_URL . '/thread_all.php');
+      header('Location: '. SITE_URL . '/');
       exit();
     }
   }

@@ -49,6 +49,8 @@ function Timer (startbtn, startview, endbtn, endview, calcbtn, calcview) {
   　var sa, d, tz;
     //hiddenにデータを格納するためにインプットを作成
     const input = document.createElement('input');
+    const end = document.createElement('input');
+    const calc = document.createElement('input');
     var html = document.getElementById("log");
   
   　switch (true) {
@@ -77,27 +79,23 @@ function Timer (startbtn, startview, endbtn, endview, calcbtn, calcview) {
       //時間型をDBの型に変更(フォーマット)
       $end = formatDate(this.mend);
 
-      input.setAttribute('type', 'hidden');
-      input.setAttribute('name', 'finish');
-      input.setAttribute('value', $end);
-      html.append(input);
-  　　break;
+      end.setAttribute('type', 'hidden');
+      end.setAttribute('name', 'finish');
+      end.setAttribute('value', $end);
+      html.append(end);
 
-  　case "記録する" == e ://経過
-  　　var d = new Date;
-  　　tz = d.getTimezoneOffset () * 60 * 1000;
-  　　this.mcalc = new Date (this.mend - this.mstart + tz);
-      $mcalc = disptime (this.mcalc);
+      //時刻を差し引きして、hiddenにデータをしまう
+      var n = 2 ;	// 小数点第n位まで残す
 
-      console.log($mcalc);
       
-      //時間型をDBの型に変更(フォーマット)
-      $calc = formatDate(this.mcalc);
-      
-      input.setAttribute('type', 'hidden');
-      input.setAttribute('name', 'time');
-      input.setAttribute('value', $calc);
-      html.append(input);
+      var diff = this.mend - this.mstart;
+      var diffcalc = Math.floor( (diff/(1000)) * Math.pow( 10, n ) ) / Math.pow( 10, n ) ;
+
+      calc.setAttribute('type', 'hidden');
+      calc.setAttribute('name', 'time');
+      calc.setAttribute('value', diffcalc);
+      html.append(calc);
+  　break;
   　}
   }
   //上(ボタンが押されたときの処理)の処理をTimerにつける

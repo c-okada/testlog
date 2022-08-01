@@ -3,10 +3,13 @@ require_once(__DIR__ .'/header.php');
 $app = new Bbs\Controller\UserUpdate();
 $app->run();
 ?>
-<h1 class="page__ttl">マイページ</h1>
-<div class="container">
-  <form method="post" id="userupdate" class="form mypage-form row" enctype="multipart/form-data">
-    <div class="col-md-8">
+<div class="l-title">
+  <div class="c-title">マイページ</div>
+</div>
+<div class="l-main l-inner">
+  <form method="post" id="userupdate" class="p-mypage" enctype="multipart/form-data">
+    <div class="p-mypage__container">
+    <div class="p-mypage__block">
       <div class="form-group">
         <label>メールアドレス</label>
         <input type="text" name="email" value="<?= isset($app->getValues()->email) ? h($app->getValues()->email): ''; ?>" class="form-control">
@@ -17,12 +20,8 @@ $app->run();
         <input type="text" name="username" value="<?= isset($app->getValues()->username) ? h($app->getValues()->username): ''; ?>" class="form-control">
         <p class="err"><?= h($app->getErrors('username')); ?></p>
       </div>
-      <button class="btn btn-primary" onclick="document.getElementById('userupdate').submit();">更新</button>
-      <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
-      <input type="hidden" name="old_image" value="<?= h($app->getValues()->image); ?>">
-      <p class="err"></p>
     </div>
-    <div class="col-md-4">
+    <div class="p-mypage__block">
       <div class="form-group">
         <div class="imgarea <?= isset($app->getValues()->image) ? '': 'noimage' ?>">
           <label>
@@ -37,9 +36,14 @@ $app->run();
         </div>
       </div>
     </div>
+    </div>
+    <button class="c-btn" onclick="document.getElementById('userupdate').submit();">更新</button>
+      <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
+      <input type="hidden" name="old_image" value="<?= h($app->getValues()->image); ?>">
+      <p class="err"></p>
   </form>
-  <form action="user_delete_confirm.php" method="post" class="user-delete">
-    <input type="submit" class="btn btn-default" value="退会する">
+  <form action="user_delete_confirm.php" method="post" class="c-user__delete">
+    <input type="submit" class="c-btn c-btn--delete" value="退会する">
     <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
   </form>
 </div><!--container -->
