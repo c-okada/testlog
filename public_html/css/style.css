@@ -344,6 +344,49 @@ input:-internal-autofill-selected {
   }
 }
 
+.p-archive {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.p-archive__tag {
+  width: 10%;
+  position: relative;
+}
+
+.p-archive__tag::before {
+  content: "";
+  display: block;
+  padding-top: 70%;
+}
+
+.p-archive__tag img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.p-archive__action {
+  width: 55%;
+}
+
+.p-archive__time {
+  width: 15%;
+}
+
+.p-archive__edit {
+  width: 20%;
+  display: flex;
+  gap: 0.8rem;
+}
+
+.p-archive__edit-img {
+  width: calc((100% - 0.8rem) / 2);
+}
+
 .p-login {
   background-color: #F9FBE7;
   border-radius: 1.5rem;
@@ -372,7 +415,11 @@ input:-internal-autofill-selected {
   }
 }
 
-.p-login__forms > div, .p-login__forms > button, .p-login__forms > p {
+.p-login__forms > button, .p-login__forms > p {
+  margin-top: 1rem;
+}
+
+.p-login__forms > div:not(:first-child) {
   margin-top: 1rem;
 }
 
@@ -393,6 +440,7 @@ input:-internal-autofill-selected {
 @media screen and (min-width: 768px) {
   .p-mypage__container {
     display: flex;
+    align-items: center;
   }
 }
 
@@ -400,6 +448,10 @@ input:-internal-autofill-selected {
   .p-mypage__block {
     width: 50%;
   }
+}
+
+.p-mypage__btn {
+  margin-top: 2rem;
 }
 
 .l-inner {
@@ -424,6 +476,17 @@ input:-internal-autofill-selected {
 @media screen and (min-width: 768px) {
   .c-btn {
     font-size: 1.5rem;
+  }
+}
+
+.c-btn--delete {
+  background-color: initial;
+  color: #D32F2F;
+  font-size: 0.8rem;
+}
+@media screen and (min-width: 768px) {
+  .c-btn--delete {
+    font-size: 1rem;
   }
 }
 
@@ -531,5 +594,29 @@ input:-internal-autofill-selected {
 
 .c-user__delete {
   margin-top: 1.5rem;
+}
+
+.c-file__img {
+  position: relative;
+  display: block;
+}
+
+.c-file__img::before {
+  content: "";
+  display: block;
+  padding-top: 50%;
+}
+@media screen and (min-width: 768px) {
+  .c-file__img::before {
+    padding-top: 100%;
+  }
+}
+
+.c-file__img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 /*# sourceMappingURL=style.css.map */

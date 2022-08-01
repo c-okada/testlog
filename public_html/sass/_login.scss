@@ -23,7 +23,10 @@
   }
 }
 
-.p-login__forms > div,.p-login__forms > button,.p-login__forms > p{
+.p-login__forms > button,.p-login__forms > p{
+  margin-top: 1rem;
+}
+.p-login__forms > div:not(:first-child){
   margin-top: 1rem;
 }
 #p-login__form-control{
