@@ -1,10 +1,15 @@
 .p-mypage__container{
   @media screen and(min-width:768px){
     display: flex;
+    align-items: center;
   }
 }
 .p-mypage__block{
   @media screen and(min-width:768px){
     width: 50%;
   }
+}
+
+.p-mypage__btn{
+  margin-top: 2rem;
 }

@@ -1,4 +1,23 @@
+$('input[type=file]').change(function () {
+  var file = $(this).prop('file')[0];
 
+  // 画像以外は処理を停止
+  if (!file.type.match('image.*')) {
+    // クリア
+    $(this).val('');
+    $('.c-file__img').html('');
+    return;
+  }
+
+  // 画像表示
+  var reader = new FileReader();
+  reader.onload = function () {
+    var img_src = $('<img>').attr('src', reader.result);
+    $('.c-file__img').html(img_src);
+    $('.c-file__img').removeClass('noimage');
+  }
+  reader.readAsDataURL(file);
+});
 
 //まずその機能で使われるであろう変数を全部含んだ入れ物を作る
 function Timer (startbtn, startview, endbtn, endview, calcbtn, calcview) {

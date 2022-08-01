@@ -19,6 +19,14 @@
     font-size: 1.5rem;
   }
 }
+.c-btn--delete{
+  background-color: initial;
+  color: #D32F2F;
+  font-size: 0.8rem;
+  @media screen and(min-width:768px){
+    font-size: 1rem;
+  }
+}
 
 .l-title{
   text-align: center;
@@ -106,4 +114,23 @@
 
 .c-user__delete{
   margin-top: 1.5rem;
+}
+
+.c-file__img{
+  position: relative;
+  display: block;
+}
+.c-file__img::before{
+  content: "";
+  display: block;
+  padding-top: 50%;
+  @media screen and(min-width:768px){
+    padding-top: 100%;
+  }
+}
+.c-file__img img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: contain;
 }
