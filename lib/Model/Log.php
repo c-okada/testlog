@@ -10,14 +10,17 @@ class Log extends \Bbs\Model {
       $stmt->bindValue('action',$values['action']);
       $res = $stmt->execute();
       $log_id = $this->db->lastInsertId();
-      $sql = "INSERT INTO timer (user_id,log_id,start,finish) VALUES (:user_id,:log_id,:start,:finish)";
+      $sql = "INSERT INTO timer (user_id,log_id,start,finish,time) VALUES (:user_id,:log_id,:start,:finish,:time)";
       $stmt = $this->db->prepare($sql);
       $stmt->bindValue('log_id',$log_id);
       $stmt->bindValue('user_id',$values['user_id']);
       $stmt->bindValue('start',$values['start']);
       $stmt->bindValue('finish',$values['finish']);
+      $stmt->bindValue('time',$values['time']);
       $res = $stmt->execute();
       $this->db->commit();
+      // var_dump($stmt->errorInfo());
+      // exit;
       
     }catch(\Exception $e){
       echo $e->getMessage();

@@ -5,21 +5,21 @@ $app = new Bbs\Controller\Log();
 $app->run();
 ?>
 
-<div class="l-title">
+<div class="l-title l-inner">
     <h2 class="c-title">活動記録</h2>
   </div>
 
-  <form action="" method="post" id="log">
-    <div class="l-log">
-      <input type="button" value="開始">
-      <input type="button" value="終了">
+  <form action="" method="post" id="log" class="l-main l-inner">
+    <div class="p-log">
+      <input type="button" value="開始" class="c-time">
+      <input type="button" value="終了" class="c-time">
     </div>
     <div class="p-action">
-      <P class="p-action__value">活動内容：
-      <input type="text" name="action" class="p-action">
+      <P class="p-action__value">活動内容：</p>
+      <textarea name="action" class="c-action"></textarea>
     </div>
 
-    <div class="l-score">
+    <div class="p-score">
       <input type="submit" value="記録する" class="c-btn">
       <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
     </div>
