@@ -29,10 +29,10 @@ class Log extends \Bbs\Model {
   }
 
   // 全スレッド取得
-  // public function getLogAll(){
-  //   $user_id = $_SESSION['me']->id;
-  //   $stmt = $this->db->query("SELECT l.id AS l_id,action,u.id AS u_id,t.id AS t_id,l.created FROM log AS l LEFT JOIN timer AS t ON l.delflag = 0 AND t.id = f.timer_id  AND u.user_id = $user_id ORDER BY l.id desc");
-  //   return $stmt->fetchAll(\PDO::FETCH_OBJ);
-  // }
+  public function getLogAll(){
+    $user_id = $_SESSION['me']->id;
+    $stmt = $this->db->query("SELECT l.id AS l_id,user_id,action,t.time AS t_time,created FROM log AS l INNER JOIN timer AS t ON l.delflag = 0 AND l_id = t.log_id ORDER BY l.id desc");
+    return $stmt->fetchAll(\PDO::FETCH_OBJ);
+  }
 
 }

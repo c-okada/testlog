@@ -433,12 +433,12 @@ input:-internal-autofill-selected {
 }
 @media screen and (min-width: 450px) {
   .l-title {
-    margin-top: 10vh;
+    margin-top: 8vh;
   }
 }
 @media screen and (min-width: 768px) {
   .l-title {
-    margin-top: 3rem;
+    margin-top: 2rem;
   }
 }
 
@@ -462,7 +462,7 @@ input:-internal-autofill-selected {
 }
 @media screen and (min-width: 768px) {
   .l-main {
-    margin-top: 4rem;
+    margin-top: 1rem;
     width: 60%;
   }
 }
