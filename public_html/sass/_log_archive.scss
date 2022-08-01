@@ -1,0 +1,35 @@
+.p-archive{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.p-archive__tag{
+  width: 10%;
+  position: relative;
+}
+.p-archive__tag::before{
+  content: "";
+  display: block;
+  padding-top: 70%;
+}
+.p-archive__tag img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: contain;
+}
+
+.p-archive__action{
+  width: 55%;
+}
+.p-archive__time{
+  width: 15%;
+}
+.p-archive__edit{
+  width: 20%;
+  display: flex;
+  gap: 0.8rem;
+}
+.p-archive__edit-img{
+  width: calc((100% - 0.8rem)/2);
+}
