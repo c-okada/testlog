@@ -71,6 +71,9 @@ class UserUpdate extends \Bbs\Controller{
       echo "不正なトークンです！";
       exit();
     }
+    if($_POST['email'] === '' && $_POST['username'] === ''){
+      throw new \Bbs\Exception\InvalidName("メールアドレスとパスワードを入力してください!");
+    }
     if(!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
       throw new \Bbs\Exception\InvalidEmail("メールアドレスが不正です！");
     }

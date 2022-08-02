@@ -30,7 +30,7 @@ class Log extends \Bbs\Model {
   // 全スレッド取得
   public function getLogAll(){
     $user_id = $_SESSION['me']->id;
-    $stmt = $this->db->query("SELECT * FROM log WHERE id = $use_id");
+    $stmt = $this->db->query("SELECT * FROM log WHERE user_id = $use_id");
     return $stmt->fetchAll(\PDO::FETCH_OBJ);
   }
 

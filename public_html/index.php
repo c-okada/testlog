@@ -14,10 +14,12 @@ $app->run();
       <input type="button" value="開始" class="c-time">
       <input type="button" value="終了" class="c-time">
     </div>
+    <p class="err"></p>
     <div class="p-action">
       <P class="p-action__value">活動内容：</p>
       <textarea name="action" class="c-action"></textarea>
     </div>
+    <p class="err"></p>
 
     <div class="p-score">
       <input type="submit" value="記録する" class="c-btn">
@@ -26,7 +28,7 @@ $app->run();
     <p class="err"><?= h($app->getErrors('create_thread')); ?></p>
   </form>
 
-  <script src=".js/timer.js"></script>
+  <script src="./js/timer.js"></script>
 
   <?php
   require_once(__DIR__ .'/footer.php');

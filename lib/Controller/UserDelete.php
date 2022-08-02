@@ -29,7 +29,7 @@ class UserDelete extends \Bbs\Controller{
     //セッションハイジャック対策
     session_destroy();
 
-    header('Location: ' . SITE_URL .'/index.php');
+    header('Location: ' . SITE_URL .'/singup.php');
     exit();
     }
   }

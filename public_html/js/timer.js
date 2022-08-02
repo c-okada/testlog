@@ -87,7 +87,7 @@ function Timer (startbtn, startview, endbtn, endview, calcbtn, calcview) {
 
       
       var diff = this.mend - this.mstart;
-      var diffcalc = Math.floor( (diff/(1000)) * Math.pow( 10, n ) ) / Math.pow( 10, n ) ;
+      var diffcalc = Math.floor( (diff/(60 * 1000)) * Math.pow( 10, n ) ) / Math.pow( 10, n ) ;
 
       calc.setAttribute('type', 'hidden');
       calc.setAttribute('name', 'time');
