@@ -39,8 +39,8 @@ class UserUpdate extends \Bbs\Controller{
       try{
         $userModel = new \Bbs\Model\User();
         if($user_img['size'] > 0){
-          unlink('./gazou/'.$old_img);
-          move_uploaded_file($user_img['tmp_name'],'./gazou/'.$user_img['name']);
+          unlink('./asset/img/'.$old_img);
+          move_uploaded_file($user_img['tmp_name'],'./asset/img/'.$user_img['name']);
           $userModel->update([
             'username' => $_POST['username'],
             'email' => $_POST['email'],

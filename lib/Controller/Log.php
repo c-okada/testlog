@@ -8,7 +8,7 @@ class Log extends \Bbs\Controller{
   }
 
   public function createLog(){
-    //モデルに値を渡すコントローラーを記述する
+    //バリデーション
     // try{
     //   $this->validate();
     // }catch (\Bbs\Exception\EmptyPost $e){
@@ -16,6 +16,7 @@ class Log extends \Bbs\Controller{
     // }catch (\Bbs\Exception\CharLength $e){
     //   $this->setErrors('create_thread',$e->getMessage());
     // }
+    //モデルに値を渡すコントローラーを記述する
     $this->setValues('action',$_POST['action']);
     $this->setValues('start',$_POST['start']);
     $this->setValues('finish',$_POST['finish']);

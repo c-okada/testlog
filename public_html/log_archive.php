@@ -11,7 +11,7 @@ require_once(__DIR__ .'/header.php');
 
     <div class="p-archive">
       <div class="p-archive__tag">
-        <img src="./img/tag1.png" alt="">
+        <img src="./img/tag-work.png" alt="">
       </div>
       <div class="p-archive__action">
         <p>活動内容活動内容活動内容活動内容活動内容活動内容活動内容活動内容活動内容活動内容活動内容</p>
@@ -23,8 +23,40 @@ require_once(__DIR__ .'/header.php');
         <button class="p-archive__edit-img"><img src="./img/icon1.png" alt=""></button>
         <button class="p-archive__edit-img"><img src="./img/icon6.png" alt=""></button>
       </div>
-
     </div>
+
+    <div class="p-archive">
+      <div class="p-archive__tag">
+        <img src="./img/tag-play.png" alt="">
+      </div>
+      <div class="p-archive__action">
+        <p>活動内容活動内容活動内容活動内容活動内容活動内容活動内容活動内容活動内容活動内容活動内容</p>
+      </div>
+      <div class="p-archive__time">
+        <p><span>分</span></p>
+      </div>
+      <div class="p-archive__edit">
+        <button class="p-archive__edit-img"><img src="./img/icon1.png" alt=""></button>
+        <button class="p-archive__edit-img"><img src="./img/icon6.png" alt=""></button>
+      </div>
+    </div>
+
+    <div class="p-archive">
+      <div class="p-archive__tag">
+        <img src="./img/tag-study.png" alt="">
+      </div>
+      <div class="p-archive__action">
+        <p>活動内容活動内容活動内容活動内容活動内容活動内容活動内容活動内容活動内容活動内容活動内容</p>
+      </div>
+      <div class="p-archive__time">
+        <p><span>分</span></p>
+      </div>
+      <div class="p-archive__edit">
+        <button class="p-archive__edit-img"><img src="./img/icon1.png" alt=""></button>
+        <button class="p-archive__edit-img"><img src="./img/icon6.png" alt=""></button>
+      </div>
+    </div>
+
 
     <div class="l-table">
 

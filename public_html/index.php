@@ -26,6 +26,8 @@ $app->run();
     <p class="err"><?= h($app->getErrors('create_thread')); ?></p>
   </form>
 
+  <script src=".js/timer.js"></script>
+
   <?php
   require_once(__DIR__ .'/footer.php');
   ?>

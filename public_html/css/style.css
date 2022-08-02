@@ -3,7 +3,7 @@ body {
   font-family: "Kaisei Opti", serif;
   background-color: #F9F2B3;
   background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0.25, #F9F9F9), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, #F9F9F9), color-stop(0.75, #F9F9F9), color-stop(0.75, transparent), to(transparent));
-  -webkit-background-size: 14px 14px;
+  -webkit-background-size: 3px 3px;
 }
 
 input:-webkit-autofill {
@@ -142,11 +142,6 @@ select {
 }
 
 /* Blur images when they have no alt attribute */
-img:not([alt]) {
-  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="10" /></filter></svg>#filter');
-  filter: blur(10px);
-}
-
 /* フォームリセット */
 input,
 button,
