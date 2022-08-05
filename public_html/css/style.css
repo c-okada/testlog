@@ -3,7 +3,7 @@ body {
   font-family: "Kaisei Opti", serif;
   background-color: #F9F2B3;
   background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0.25, #F9F9F9), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, #F9F9F9), color-stop(0.75, #F9F9F9), color-stop(0.75, transparent), to(transparent));
-  -webkit-background-size: 3px 3px;
+  -webkit-background-size: 6px 6px;
 }
 
 input:-webkit-autofill {
@@ -539,7 +539,11 @@ input:-internal-autofill-selected {
 .p-archive {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
+}
+
+.p-archive + .p-archive {
+  margin-top: 1rem;
 }
 
 .p-archive__tag {
@@ -562,23 +566,104 @@ input:-internal-autofill-selected {
 }
 
 .p-archive__action {
-  width: 55%;
+  width: 50%;
 }
 
 .p-archive__time {
-  width: 15%;
+  width: 30%;
 }
 
 .p-archive__edit {
-  width: 20%;
+  width: 10%;
   display: flex;
-  gap: 0.8rem;
+  gap: 0.5rem;
 }
 
 .p-archive__edit-img {
-  width: calc((100% - 0.8rem) / 2);
+  width: calc((100% - 0.5rem) / 2);
 }
 
+.p-archive__edit-img input[type=image] {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.p-total {
+  position: fixed;
+  top: 12%;
+  right: -3%;
+  width: 10rem;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (min-width: 768px) {
+  .p-total {
+    top: 15%;
+    right: 7%;
+    width: 11rem;
+    height: 7rem;
+  }
+}
+
+.p-total p {
+  color: #fff;
+  z-index: 1;
+}
+
+.p-total p span {
+  font-size: 1.2rem;
+}
+
+.p-total__bg {
+  position: absolute;
+  width: 6rem;
+  height: 6rem;
+  left: 20%;
+  mix-blend-mode: multiply;
+}
+@media screen and (min-width: 768px) {
+  .p-total__bg {
+    width: 7rem;
+    height: 7rem;
+  }
+}
+
+.circle-1 {
+  background: #e75454;
+  border-radius: 50% 50% 50% 70%/50% 50% 70% 60%;
+  -webkit-animation: border-animation 6s infinite linear;
+          animation: border-animation 6s infinite linear;
+}
+
+.circle-2 {
+  background: #f92;
+  border-radius: 80% 30% 50% 50%/50%;
+  -webkit-animation: border-animation 4s infinite linear;
+          animation: border-animation 4s infinite linear;
+}
+
+.circle-3 {
+  background: #fc2;
+  border-radius: 40% 40% 50% 40%/30% 50% 50% 50%;
+  -webkit-animation: border-animation 3s infinite linear;
+          animation: border-animation 3s infinite linear;
+}
+
+/* Animation */
+@-webkit-keyframes border-animation {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes border-animation {
+  to {
+    transform: rotate(360deg);
+  }
+}
 .p-login {
   background-color: #F9FBE7;
   border-radius: 1.5rem;

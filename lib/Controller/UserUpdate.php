@@ -11,6 +11,8 @@ class UserUpdate extends \Bbs\Controller{
   protected function showUser(){
     $user = new \Bbs\Model\User();
     $userData = $user->find($_SESSION['me']->id);
+    // var_dump($userData);
+    // exit;
     $this->setValues('username',$userData->username);
     $this->setValues('email',$userData->email);
     $this->setValues('image',$userData->image);
