@@ -11,15 +11,15 @@ $app->run();
 
   <form action="" method="post" id="log" class="l-main l-inner">
     <div class="p-log">
-      <input type="button" value="開始" class="c-time">
-      <input type="button" value="終了" class="c-time">
+      <input type="button" value="<?= isset($app->getValues()->start) ? h($app->getValues()->start): '開始'; ?>" class="c-time">
+      <input type="button" value="<?= isset($app->getValues()->finish) ? h($app->getValues()->finish): '終了'; ?>" class="c-time">
     </div>
-    <p class="err"></p>
+    <p class="err"><?= h($app->getErrors('time')); ?></p>
     <div class="p-action">
       <P class="p-action__value">活動内容：</p>
-      <textarea name="action" class="c-action"></textarea>
+      <textarea name="action" class="c-action"><?= isset($app->getValues()->action) ? h($app->getValues()->action): ''; ?></textarea>
     </div>
-    <p class="err"></p>
+    <p class="err"><?= h($app->getErrors('action')); ?></p>
 
     <div class="p-score">
       <input type="submit" value="記録する" class="c-btn">

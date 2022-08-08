@@ -52,7 +52,7 @@ class Log extends \Bbs\Model {
     $sql = "UPDATE log SET action = :action,time = :time where id = :id";
     $stmt = $this->db->prepare($sql);
     $stmt->bindValue('action',$editdata['action']);
-    $stmt->bindValue('time',$editdata['time']);
+    $stmt->bindValue('time',(int)$editdata['time']);
     $stmt->bindValue('id',$editdata['id']);
     $stmt->execute();
     // var_dump($stmt);

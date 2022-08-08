@@ -1,8 +1,9 @@
 <?php
 require_once(__DIR__ .'/header.php');
 $app=new Bbs\Controller\LogEdit();
-$app->run($_POST['logedit']);
-// var_dump($app);
+$log_id = $_POST['logedit'];
+$app->run($log_id);
+// var_dump($log_id);
 // exit;
 ?>
   <div class="l-title">
@@ -14,20 +15,21 @@ $app->run($_POST['logedit']);
       <div class="p-login__form">
             <label>活動内容</label>
             <input type="text" name="action" value="<?= isset($app->getValues()->action) ? h($app->getValues()->action): ''; ?>" id="p-login__form-control">
-            <p class="err"></p>
+            <p class="err"><?= h($app->getErrors('action')); ?></p>
       </div>
       <div class="p-login__form">
             <label>活動時間</label>
             <input type="text" name="time" value="<?= isset($app->getValues()->time) ? h($app->getValues()->time): ''; ?>" id="p-login__form-control">
-            <p class="err"></p>
+            <p class="err"><?= h($app->getErrors('time')); ?></p>
       </div>
-    </form>
+    
     <div class="p-log-edit__btn">
       <button class="c-btn" onclick="document.getElementById('editdata').submit();">更新</button>
       <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
-      <input type="hidden" name="logedit" value="<?= h($_POST['logedit']);?>">
+      <input type="hidden" name="id" value="<?= h($log_id);?>">
       <p class="err"></p>
     </div>
+    </form>
 
     <div class="l-pagination">
 
