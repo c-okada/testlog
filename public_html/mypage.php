@@ -2,6 +2,8 @@
 require_once(__DIR__ .'/header.php');
 $app = new Bbs\Controller\UserUpdate();
 $app->run();
+// var_dump($app);
+// exit;
 ?>
 <div class="l-title">
   <div class="c-title">マイページ</div>
@@ -12,7 +14,7 @@ $app->run();
       <div class="p-login__forms">
         <div class="p-login__form">
           <label>メールアドレス</label>
-          <input type="text" name="email" value="<?= isset($app->getValues()->email) ? h($app->getValues()->email): ''; ?>" id="p-login__form-control">
+          <input type="email" name="email" value="<?= isset($app->getValues()->email) ? h($app->getValues()->email): ''; ?>" id="p-login__form-control">
           <p class="err"><?= h($app->getErrors('email')); ?></p>
         </div>
         <div class="p-login__form">
@@ -22,16 +24,14 @@ $app->run();
         </div>
       </div>
       <div class="p-mypage__block">
-        <div class="form-group">
           <div class="imgarea <?= isset($app->getValues()->image) ? '': 'noimage' ?>">
             <label for="c-file" class="c-file__img">
-              <img src="<?= isset($app->getValues()->image) ? './gazou/'. h($app->getValues()->image) : './asset/img/noimage.png'; ?>" alt="">
+              <img src="<?= isset($app->getValues()->image) ? './asset/img/'. h($app->getValues()->image) : './asset/img/noimage.png'; ?>" alt="">
             </label>
             <p class="file-btn">
-                <input type="file" id="c-file" name="image" class="c-file" style="display:none" accept="image/*">
+              <input type="file" id="c-file" name="image" class="c-file" style="display:none" accept="image/*">
             </p>
           </div>
-        </div>
       </div>
     </div>
     <div class="p-mypage__btn">

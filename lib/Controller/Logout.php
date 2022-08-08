@@ -15,6 +15,6 @@ class Logout extends \Bbs\Controller {
       session_destroy();
     }
     //トップページへリダイレクト
-    header('Location: ' . SITE_URL);
+    header('Location: ' . SITE_URL .'/login.php');
   }
 }

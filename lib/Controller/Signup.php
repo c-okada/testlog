@@ -64,10 +64,16 @@ class Signup extends \Bbs\Controller {
       echo "不正なフォームから登録されています!";
       exit();
     }
+    if ($_POST['email'] === '' && $_POST['username'] === '' && $_POST['password'] === '') {
+      throw new \Bbs\Exception\InvalidPassword("全てを入力してください!");
+    }
     if (!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)) {
       throw new \Bbs\Exception\InvalidEmail("メールアドレスが不正です!");
     }
-    if ($_POST['username'] === '') {
+    if ($_POST['username'] === '' && $_POST['password'] === '') {
+      throw new \Bbs\Exception\InvalidPassword("ユーザー名とパスワードが入力されていません!");
+    }
+    if ($_POST['username'] === '' && isset($_POST['password'])) {
       throw new \Bbs\Exception\InvalidName("ユーザー名が入力されていません!");
     }
     if (!preg_match('/\A[a-zA-Z0-9]+\z/', $_POST['password'])) {

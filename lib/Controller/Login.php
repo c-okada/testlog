@@ -66,8 +66,14 @@ class Login extends \Bbs\Controller {
       exit();
     }
     // emailとpasswordの欄が空白だったらエラーメッセージ
-    if ($_POST['email'] === '' || $_POST['password'] === '') {
+    if ($_POST['email'] === '' && $_POST['password'] === '') {
       throw new \Bbs\Exception\EmptyPost("メールアドレスとパスワードを入力してください!");
+    }
+    if ($_POST['email'] === ''){
+      throw new \Bbs\Exception\EmptyPost("メールアドレスを入力してください!");
+    }
+    if ($_POST['password'] === ''){
+      throw new \Bbs\Exception\EmptyPost("パスワードを入力してください!");
     }
   }
 }

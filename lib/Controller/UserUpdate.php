@@ -11,6 +11,8 @@ class UserUpdate extends \Bbs\Controller{
   protected function showUser(){
     $user = new \Bbs\Model\User();
     $userData = $user->find($_SESSION['me']->id);
+    // var_dump($userData);
+    // exit;
     $this->setValues('username',$userData->username);
     $this->setValues('email',$userData->email);
     $this->setValues('image',$userData->image);
@@ -39,8 +41,8 @@ class UserUpdate extends \Bbs\Controller{
       try{
         $userModel = new \Bbs\Model\User();
         if($user_img['size'] > 0){
-          unlink('./gazou/'.$old_img);
-          move_uploaded_file($user_img['tmp_name'],'./gazou/'.$user_img['name']);
+          unlink('./asset/img/'.$old_img);
+          move_uploaded_file($user_img['tmp_name'],'./asset/img/'.$user_img['name']);
           $userModel->update([
             'username' => $_POST['username'],
             'email' => $_POST['email'],
@@ -70,6 +72,9 @@ class UserUpdate extends \Bbs\Controller{
     if (!isset($_POST['token']) || $_POST['token'] !== $_SESSION['token']){
       echo "不正なトークンです！";
       exit();
+    }
+    if($_POST['email'] === '' && $_POST['username'] === ''){
+      throw new \Bbs\Exception\InvalidName("メールアドレスとパスワードを入力してください!");
     }
     if(!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
       throw new \Bbs\Exception\InvalidEmail("メールアドレスが不正です！");

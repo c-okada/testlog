@@ -8,7 +8,7 @@ class Log extends \Bbs\Model {
       $stmt = $this->db->prepare($sql);
       $stmt->bindValue('start',$values['start']);
       $stmt->bindValue('finish',$values['finish']);
-      $res = $stmt->execute();
+      $stmt->execute();
       $timer_id = $this->db->lastInsertId();
       $sql = "INSERT INTO log (user_id,timer_id,action,time,created,modified) VALUES (:user_id,:timer_id,:action,:time,now(),now())";
       $stmt = $this->db->prepare($sql);
@@ -16,7 +16,7 @@ class Log extends \Bbs\Model {
       $stmt->bindValue('timer_id',$timer_id);
       $stmt->bindValue('action',$values['action']);
       $stmt->bindValue('time',$values['time']);
-      $res = $stmt->execute();
+      $stmt->execute();
       $this->db->commit();
       // var_dump($stmt->errorInfo());
       // exit;
@@ -27,10 +27,76 @@ class Log extends \Bbs\Model {
     }
   }
 
-  // 全スレッド取得
+  // 全ログ取得
   public function getLogAll(){
-    $user_id = $_SESSION['me']->id;
-    $stmt = $this->db->query("SELECT * FROM log WHERE id = $use_id");
+    $sql = "SELECT * FROM log WHERE user_id = :user_id AND delflag = :delflag";
+    $stmt = $this->db->prepare($sql);
+    $stmt->bindValue('user_id',$_SESSION['me']->id);
+    $stmt->bindValue('delflag', 0);
+    $stmt->execute();
+    return $stmt->fetchAll(\PDO::FETCH_OBJ);
+  }
+
+  // 全スレッド時間合計
+  public function calcLog(){
+    $sql = "SELECT sum(time) AS calctime FROM log WHERE user_id = :user_id AND delflag = :delflag";
+    $stmt = $this->db->prepare($sql);
+    $stmt->bindValue('user_id',$_SESSION['me']->id);
+    $stmt->bindValue('delflag', 0);
+    $stmt->execute();
+    return $stmt->fetchAll(\PDO::FETCH_OBJ);
+  }
+
+  //ログ編集
+  public function logUpdate($editdata){
+    $sql = "UPDATE log SET action = :action,time = :time where id = :id";
+    $stmt = $this->db->prepare($sql);
+    $stmt->bindValue('action',$editdata['action']);
+    $stmt->bindValue('time',(int)$editdata['time']);
+    $stmt->bindValue('id',$editdata['id']);
+    $stmt->execute();
+    // var_dump($stmt);
+    // exit;
+    return $stmt->fetchAll(\PDO::FETCH_OBJ);
+    // var_dump($stmt->errorInfo());
+    // exit;
+  }
+
+  
+  // 編集ログ取得
+  public function getLog($log_id){
+    $sql = "SELECT * FROM log WHERE user_id = :user_id AND delflag = :delflag AND id = :id";
+    $stmt = $this->db->prepare($sql);
+    $stmt->bindValue('user_id',$_SESSION['me']->id);
+    $stmt->bindValue('delflag', 0);
+    $stmt->bindValue('id',$log_id);
+    $stmt->execute();
+    // var_dump($stmt->errorInfo());
+    // exit;
+    $stmt->setFetchMode(\PDO::FETCH_CLASS,'stdClass');
+    return $stmt->fetch();
+  }
+
+  //ログ削除
+  public function logDelete($log_id){
+    // var_dump($value);
+    // exit;
+    $sql = "UPDATE log SET delflag = :delflag,modified = now() where id = :id";
+    $stmt = $this->db->prepare($sql);
+    $stmt->bindValue('delflag', 1);
+    $stmt->bindValue('id',$log_id);
+    $stmt->execute();
+    // var_dump($stmt->errorInfo());
+    // exit;
+  }
+
+   // 全ログ削除
+   public function logDeleteAll(){
+    $sql = "UPDATE log SET delflag = :delflag,modified = now() WHERE user_id = :user_id";
+    $stmt = $this->db->prepare($sql);
+    $stmt->bindValue('user_id',$_SESSION['me']->id);
+    $stmt->bindValue('delflag', 1);
+    $stmt->execute();
     return $stmt->fetchAll(\PDO::FETCH_OBJ);
   }
 
