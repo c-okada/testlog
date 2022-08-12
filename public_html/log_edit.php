@@ -11,7 +11,7 @@ $app->run($log_id);
   </div>
 
   <div class="l-main l-inner">
-    <form action="log_edit_done.php" method="post" id="editdata" class="p-log-edit" enctype="multipart/form-data">
+    <form method="post" id="editdata" class="p-log-edit" enctype="multipart/form-data">
       <div class="p-login__form">
             <label>活動内容</label>
             <input type="text" name="action" value="<?= isset($app->getValues()->action) ? h($app->getValues()->action): ''; ?>" id="p-login__form-control">
@@ -23,12 +23,13 @@ $app->run($log_id);
             <p class="err"><?= h($app->getErrors('time')); ?></p>
       </div>
     
-    <div class="p-log-edit__btn">
-      <button class="c-btn" onclick="document.getElementById('editdata').submit();">更新</button>
-      <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
-      <input type="hidden" name="id" value="<?= h($log_id);?>">
-      <p class="err"></p>
-    </div>
+      <div class="p-log-edit__btn">
+        <button class="c-btn" onclick="document.getElementById('editdata').submit();">更新</button>
+        <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
+        <input type="hidden" name="id" value="<?= h($log_id);?>">
+        <input type="hidden" name="logedit" value="<?= $_POST['logedit'];?>">
+        <p class="err"></p>
+      </div>
     </form>
 
     <div class="l-pagination">
