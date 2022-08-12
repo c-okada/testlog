@@ -667,6 +667,10 @@ input:-internal-autofill-selected {
     transform: rotate(360deg);
   }
 }
+.p-log-edit__btn {
+  margin-top: 2rem;
+}
+
 .p-login {
   background-color: #F9FBE7;
   border-radius: 1.5rem;

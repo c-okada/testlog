@@ -21,12 +21,12 @@ class LogEdit extends \Bbs\Controller{
     try{
       $this->validate($logData);
     }catch (\Bbs\Exception\EmptyTime $e){
+      // var_dump('ok');
+      // exit;
       $this->setErrors('time',$e->getMessage());
     }catch (\Bbs\Exception\Digit $e){
       $this->setErrors('time',$e->getMessage());
     }catch (\Bbs\Exception\EmptyPost $e){
-      // var_dump('ok');
-      // exit;
       $this->setErrors('action',$e->getMessage());
     }catch (\Bbs\Exception\CharLength $e){
       $this->setErrors('action',$e->getMessage());
@@ -57,10 +57,10 @@ class LogEdit extends \Bbs\Controller{
         throw new \Bbs\Exception\EmptyPost("全て入力してください！");
       exit();
       }
-      if(!isset($_POST['time'])){
-        throw new \Bbs\Exception\EmptyTime("半角数字で入力してください！");
+      if($_POST['time'] === ""){
+        throw new \Bbs\Exception\EmptyTime("時間を入力してください！");
       }
-      if(is_int($_POST['time'])){
+      if(!is_numeric($_POST['time'])){
         throw new \Bbs\Exception\Digit("半角数字で入力してください！");
       }
       if($_POST['action'] === ""){
