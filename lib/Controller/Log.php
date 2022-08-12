@@ -85,10 +85,10 @@ class Log extends \Bbs\Controller{
 
   public function logDeleteAll(){
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
-      $log = new Bbs\Model\Log();
+      $logModel = new Bbs\Model\Log();
       // var_dump($log);
       // exit;
-      $logMod = $log->logDeleteAll();
+      $logModel->logDeleteAll();
     }
     header('Location: '. SITE_URL . '/index.php');
     exit();

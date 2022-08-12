@@ -1,9 +1,15 @@
 <?php
 require_once(__DIR__ .'/header.php');
-$logMod = new Bbs\Controller\Log();
 // var_dump('a');
 // exit;
-var_dump($logMod);
-exit;
-$logMod->logDeleteAll();
+// var_dump($_POST);
+// exit;
+// $logMod = new Bbs\Controller\Log();
+// $logMod->logDeleteAll();
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+  $logModel = new Bbs\Model\Log();
+  $logModel->logDeleteAll();
+}
+header('Location: '. SITE_URL . '/index.php');
+exit();
 ?>
