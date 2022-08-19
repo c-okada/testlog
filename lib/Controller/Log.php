@@ -10,12 +10,12 @@ class Log extends \Bbs\Controller{
   public function createLog(){
     try{
       $this->validate();
-    }catch (\Bbs\Exception\EmptyTime $e){
-      $this->setErrors('time',$e->getMessage());
+    // }catch (\Bbs\Exception\EmptyTime $e){
+    //   $this->setErrors('time',$e->getMessage());
     }catch (\Bbs\Exception\EmptyPost $e){
       $this->setErrors('action',$e->getMessage());
-    }catch (\Bbs\Exception\CharLength $e){
-      $this->setErrors('action',$e->getMessage());
+    // }catch (\Bbs\Exception\CharLength $e){
+    //   $this->setErrors('action',$e->getMessage());
     }
     //モデルに値を渡すコントローラーを記述する
     $this->setValues('action',$_POST['action']);
@@ -39,8 +39,9 @@ class Log extends \Bbs\Controller{
       $logModel->createLog([
         'action' => $_POST['action'],
         // 'start' => $day,
-        'start' => $_POST['start'],
-        'finish' => $_POST['finish'],
+        // timerテーブル削除
+        // 'start' => $_POST['start'],
+        // 'finish' => $_POST['finish'],
         'time' => $_POST['time'],
         'user_id' => $_SESSION['me']->id
       ]);
@@ -58,25 +59,39 @@ class Log extends \Bbs\Controller{
       throw new \Bbs\Exception\EmptyPost("全て入力してください！");
     exit();
     }
-    if(!isset($_POST['start'])){
-      throw new \Bbs\Exception\EmptyTime("時間を取得してください！");
-    }
-    if(isset($_POST['start'])){
-      $this->setValues('start',$_POST['start']);
-    }
-    if(!isset($_POST['finish'])){
-      throw new \Bbs\Exception\EmptyTime("時間を取得してください！");
-    }
-    if(isset($_POST['finish'])){
-      // $finish_log = date($_POST['finish'],'H時i分s秒');
-      // console($finish_log);
-      $this->setValues('finish',$_POST['finish']);
-    }
-    if($_POST['action'] === ""){
-      throw new \Bbs\Exception\EmptyPost("内容を入力してください！");
-    }
-    if(mb_strlen($_POST['action']) > 200){
-      throw new \Bbs\Exception\CharLength("記録が長すぎます！");
-    }
+    // if(!isset($_POST['start'])){
+    //   throw new \Bbs\Exception\EmptyTime("時間を取得してください！");
+    // }
+    // if(isset($_POST['start'])){
+    //   $this->setValues('start',$_POST['start']);
+    // }
+    // if(!isset($_POST['finish'])){
+    //   throw new \Bbs\Exception\EmptyTime("時間を取得してください！");
+    // }
+    // if(isset($_POST['finish'])){
+    //   // $finish_log = date($_POST['finish'],'H時i分s秒');
+    //   // console($finish_log);
+    //   $this->setValues('finish',$_POST['finish']);
+    // }
+    // if(isset($_POST['start']) && isset($_POST['finish']) && $_POST['action'] === ""){
+    //   $this->setValues('start',$_POST['start']);
+    //   $this->setValues('finish',$_POST['finish']);
+    //   throw new \Bbs\Exception\EmptyPost("内容を入力してください！");
+    // }
+    // if(mb_strlen($_POST['action']) > 200){
+    //   throw new \Bbs\Exception\CharLength("記録が長すぎます！");
+    // }
   }
+
+  public function logDeleteAll(){
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){
+      $logModel = new Bbs\Model\Log();
+      // var_dump($log);
+      // exit;
+      $logModel->logDeleteAll();
+    }
+    header('Location: '. SITE_URL . '/index.php');
+    exit();
+  }
+
 }

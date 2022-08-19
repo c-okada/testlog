@@ -9,6 +9,11 @@ class User extends \Bbs\Model {
       // パスワードのハッシュ化
       ':password' => password_hash($values['password'],PASSWORD_DEFAULT)
     ]);
+    // var_dump($stmt);
+    // exit;
+
+    // var_dump($res);
+    // exit;
     // メールアドレスがユニークでなければfalseを返す
     if ($res === false) {
       throw new \Bbs\Exception\DuplicateEmail();
