@@ -38,6 +38,8 @@ $app->run();
       <button class="c-btn" onclick="document.getElementById('userupdate').submit();">更新</button>
         <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
         <input type="hidden" name="old_image" value="<?= h($app->getValues()->image); ?>">
+        <input type="hidden" name="username" value="<?= h($app->getValues()->username); ?>">
+        <input type="hidden" name="email" value="<?= h($app->getValues()->email); ?>">
         <p class="err"></p>
     </div>
   </form>

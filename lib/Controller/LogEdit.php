@@ -35,8 +35,8 @@ class LogEdit extends \Bbs\Controller{
     // exit;
     if ($this->hasError()){
       return;
-    }if(!isset($_POST['time'])){
-      return;
+    // }if(!isset($_POST['time'])){
+    //   return;
     }else{
       $log=new \Bbs\Model\Log();
       $logData = $log->logUpdate();
@@ -54,7 +54,7 @@ class LogEdit extends \Bbs\Controller{
     }
     if(isset($_POST['time'])){
       if($_POST['time'] === "" &&  $_POST['action'] === ""){
-        throw new \Bbs\Exception\EmptyPost("全て入力してください！");
+        throw new \Bbs\Exception\EmptyTime("全て入力してください！");
       exit();
       }
       if($_POST['time'] === ""){
