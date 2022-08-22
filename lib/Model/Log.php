@@ -61,6 +61,8 @@ class Log extends \Bbs\Model {
   public function logUpdate(){
     $sql = "UPDATE log SET action = :action,time = :time where id = :id";
     $stmt = $this->db->prepare($sql);
+    var_dump($stmt->errorInfo());
+    exit;
     $stmt->bindValue('action',$_POST['action']);
     $stmt->bindValue('time',$_POST['time']);
     $stmt->bindValue('id',$_POST['id']);
