@@ -1,8 +1,8 @@
 <?php
 // ini_set('display_errors',1);//本番移行時削除
-define('DSN','mysql:host=mysql1.php.xdomain.ne.jp;charset=utf8;dbname=testlog');
-define('DB_USERNAME','user');
-define('DB_PASSWORD','user1111');
+define('DSN','mysql:host=localhost;charset=utf8;dbname=testlog');
+define('DB_USERNAME','testlog');
+define('DB_PASSWORD','eIHDowWdlVnNycof');
 define('SITE_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/testlog/public_html');
 require_once(__DIR__ .'/../lib/Controller/functions.php');
 require_once(__DIR__ . '/autoload.php');
