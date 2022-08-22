@@ -2,6 +2,9 @@
 require_once(__DIR__ .'/header.php');
 $app = new Bbs\Controller\UserUpdate();
 $app->run();
+
+$user= new \Bbs\Model\User();
+$userNames=$user->find($_SESSIN['me']->id);
 // var_dump($app);
 // exit;
 ?>
@@ -14,12 +17,12 @@ $app->run();
       <div class="p-login__forms">
         <div class="p-login__form">
           <label>メールアドレス</label>
-          <input type="email" name="email" value="<?= isset($app->getValues()->email) ? h($app->getValues()->email): h($app->getValues()->email); ?>" id="p-login__form-control">
+          <input type="email" name="email" value="<?= isset($userNames->email) ? h($userNames->email): ''; ?>" id="p-login__form-control">
           <p class="err"><?= h($app->getErrors('email')); ?></p>
         </div>
         <div class="p-login__form">
           <label>ユーザー名</label>
-          <input type="text" name="username" value="<?= isset($app->getValues()->username) ? h($app->getValues()->username): h($app->getValues()->email); ?>" id="p-login__form-control">
+          <input type="text" name="username" value="<?= isset($userNames->username) ? h($userNames->username): ''; ?>" id="p-login__form-control">
           <p class="err"><?= h($app->getErrors('username')); ?></p>
         </div>
       </div>
