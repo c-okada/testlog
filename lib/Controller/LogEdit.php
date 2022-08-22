@@ -33,6 +33,9 @@ class LogEdit extends \Bbs\Controller{
     }
     // var_dump($editdata);
     // exit;
+    var_dump($this->hasError());
+    exit;
+
     if ($this->hasError()){
       return;
     }if(!isset($_POST['time'])){
