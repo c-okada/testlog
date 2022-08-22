@@ -53,7 +53,7 @@ class LogEdit extends \Bbs\Controller{
       exit();
     }
     if(isset($_POST['time'])){
-      if(!isset($_POST['time']) &&  !isset($_POST['action'])){
+      if($_POST['time'] === "" &&  $_POST['action'] === ""){
         throw new \Bbs\Exception\EmptyPost("全て入力してください！");
       exit();
       }
