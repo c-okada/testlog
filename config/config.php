@@ -3,7 +3,8 @@
 define('DSN','mysql:host=us-cdbr-east-06.cleardb.net;charset=utf8;dbname=heroku_0f63c1d3acab9ef');
 define('DB_USERNAME','b6772c0b87948a');
 define('DB_PASSWORD','cde63861');
-define('SITE_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/testlog/public_html');
+// define('SITE_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/testlog/public_html');
+define('SITE_URL', 'http://' . $_SERVER['HTTP_HOST']);
 require_once(__DIR__ .'/../lib/Controller/functions.php');
 require_once(__DIR__ . '/autoload.php');
 session_start();
