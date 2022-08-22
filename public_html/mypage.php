@@ -14,12 +14,12 @@ $app->run();
       <div class="p-login__forms">
         <div class="p-login__form">
           <label>メールアドレス</label>
-          <input type="email" name="email" value="<?= isset($app->getValues()->email) ? h($app->getValues()->email): ''; ?>" id="p-login__form-control">
+          <input type="email" name="email" value="<?= isset($app->getValues()->email); ?>" id="p-login__form-control">
           <p class="err"><?= h($app->getErrors('email')); ?></p>
         </div>
         <div class="p-login__form">
           <label>ユーザー名</label>
-          <input type="text" name="username" value="<?= isset($app->getValues()->username) ? h($app->getValues()->username): ''; ?>" id="p-login__form-control">
+          <input type="text" name="username" value="<?= isset($app->getValues()->username);?>" id="p-login__form-control">
           <p class="err"><?= h($app->getErrors('username')); ?></p>
         </div>
       </div>
@@ -38,8 +38,6 @@ $app->run();
       <button class="c-btn" onclick="document.getElementById('userupdate').submit();">更新</button>
         <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
         <input type="hidden" name="old_image" value="<?= h($app->getValues()->image); ?>">
-        <input type="hidden" name="username" value="<?= h($app->getValues()->username); ?>">
-        <input type="hidden" name="email" value="<?= h($app->getValues()->email); ?>">
         <p class="err"></p>
     </div>
   </form>
