@@ -39,7 +39,8 @@ class LogEdit extends \Bbs\Controller{
     if ($this->hasError()){
       return;
     }
-    if!isset($_POST['time'])){
+    if(!isset($_POST['time']))
+    {
       return;
     }else{
       $log=new \Bbs\Model\Log();
