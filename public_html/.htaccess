@@ -1,0 +1,4 @@
+AuthUserFile /public_html/.htpasswd
+AuthType Basic
+AuthName "Restricted Access"
+Require valid-user
