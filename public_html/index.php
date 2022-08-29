@@ -1,6 +1,9 @@
 <?php
 require_once(__DIR__ .'/header.php');
 
+var_dump(__FILE__);
+exit;
+
 $app = new Bbs\Controller\Log();
 $app->run();
 ?>
